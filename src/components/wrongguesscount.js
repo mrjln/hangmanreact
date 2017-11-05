@@ -35,4 +35,4 @@ class wrongGuessCount extends PureComponent {
 
 }
 
-export default wrongGuessCount
+export default wrongGuessCount 

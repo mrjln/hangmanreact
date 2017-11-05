@@ -1,1 +1,5 @@
-export default function(){}
+import guess from './guess'
+
+export default {
+  guess,
+}

@@ -1,48 +1,69 @@
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import nextguess from '../actions/nextguess'
+
+class Hangman extends PureComponent {
+    render() {
+      return(
+              <button onClick={this.nextguess} > Start Game </button>
+            )
+    }
+}
+
+const mapStateToProps =  function(state){
+return {
+        nextguess: state.nextguess
+        }
+}
+
+
+export default connect(mapStateToProps, { nextguess })(Hangman)
+
+ /*
+
+ var letter = document.getElementById("userInput").value
  import React, { PureComponent } from 'react'
  import Showguess from './components/Showguess'
  import WrongGuessCount from './components/Wrongguesscount'
+ import Showguess from '/components/Showguess'
 
 class Hangman extends PureComponent {
   static propTypes = {
   word: PropTypes.string,
   guesses:PropTypes.array,
-  isWinner: PropTypes.bool
+  iswinner: PropTypes.bool
 }
 
-  isWinner(word, guesses) {
-  var lettercollection = word.split("");
-    var filteredWord = lettercollection.filter(function(letter){
-        return (guesses.indexOf(letter) === -1 )
+    isWinner(word, guesses) {
+    var lettercollection = word.split("");
+      var filteredWord = lettercollection.filter(function(letter){
+          return (guesses.indexOf(letter) === -1 )
+      }
+      if (filteredWord.length === 0), this.setState({iswinner: true})
+      else, this.setState({iswinner: false})
+
+  }
+
+    /*next(word, guesses) {
+    word = word.toLowerCase()
+    if (isWinner(word,guesses))
+    return <{alert('YOU WON!')}/>
+  }
+
+
+  getinputfromuser(answer) {
+        console.log("player wrote:", answer)
+        var trimmedAnswer = answer.trim();
+        var lowerCasedAnswer = trimmedAnswer.toLowerCase();
+        guesses.push(lowerCasedAnswer);
+        this.setState({guesses: guesses});
+        next(word,guesses);
     }
-    if (filteredWord.length === 0) return true;
-    else return false;
-}
-
-
-          function next(word, guesses) {
-
-            word = word.toLowerCase()
-              // check if lost
-              console.log("Guesscount", wrongGuessCount(word,guesses))
-              // check if won
-              if (isWinner(word,guesses)) return;
-
-              // ask for the next letter
-              function question(answer) {
-                  console.log("player wrote:", answer)
-                  // do something with answer
-                  var trimmedAnswer = answer.trim();
-                  var lowerCasedAnswer = trimmedAnswer.toLowerCase();
-                  guesses.push(lowerCasedAnswer);
-                  showGuess(word, guesses);
-                  next(word,guesses);
-              }
-            }
-
-
 
   return (
-          )
+
+    <div> {this.state.iswinner} </div>
+  )
 
 }
 

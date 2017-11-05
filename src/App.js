@@ -19,8 +19,8 @@ class App extends Component {
             </label>
             <input type="Guess" value="Guess" />
           </form>
-          <h1>Wrong Guess Count: </h1>
-          <WrongGuessCount  />
+
+          <Hangman />
           <Showguess />
       </div>
     );

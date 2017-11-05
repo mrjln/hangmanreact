@@ -1,21 +1,12 @@
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 
 class showGuess extends PureComponent {
-  static propTypes = {
-  word: PropTypes.string,
-  guesses:PropTypes.array,
-  showguess: PropTypes.string.isRequired,
-}
 
-constructor(props) {
-  super(props)
-  this.state = {
-    showguess: "h _ l l _",
-  }
-}
 
- showGuess(word, guesses) {
+ showGuessTekst(word, guesses) {
+   word = "blob"
+   guesses = ["w", "t", "o"]
+
   var lettercollection = word.split("");
   var dash = "_";
 
@@ -24,17 +15,26 @@ constructor(props) {
          return dash
        } else {
          return letter
-       };
-     });
+       }
+     })
 
      var joined = result.join(" ")
      console.log(joined)
      return joined
+     let showguess = this.state.showguess
+     this.setState(showguess: showguess)
+ }
+
+ constructor(props) {
+   super(props);
+   this.state = {
+     showguess: this.showGuessTekst(),
+   }
  }
 
 render() {
   return (
-        <h1> { this.state.showguess} </h1>
+        <h1> Show guess { this.state.showguess} </h1>
           )
 }
 
