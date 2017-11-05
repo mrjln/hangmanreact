@@ -1,13 +1,11 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import nextguess from '../actions/nextguess'
 import Showguess from './Showguess.js'
 
 class Hangman extends PureComponent {
     render() {
       return(
               <div>
-              <button onClick={this.nextguess} > Start Game </button>
               <Showguess />
               </div>
             )
@@ -21,7 +19,7 @@ return {
 }
 
 
-export default connect(mapStateToProps, { nextguess })(Hangman)
+export default Hangman
 
  /*
 
