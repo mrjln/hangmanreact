@@ -2,18 +2,6 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 class wrongGuessCount extends PureComponent {
-  static propTypes = {
-    word: PropTypes.string,
-    guesses:PropTypes.array,
-    amountofwrongguesses: PropTypes.number
-  }
-
-  constructor(props) {
-    super(props)
-    this.state = {
-      amountofwrongguesses: 4,
-    }
-  }
 
    wrongGuessCount(word, guesses) {
       var amountOfWrongGuesses = 0
@@ -35,4 +23,4 @@ class wrongGuessCount extends PureComponent {
 
 }
 
-export default wrongGuessCount 
+export default wrongGuessCount

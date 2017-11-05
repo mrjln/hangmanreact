@@ -14,17 +14,19 @@ class App extends Component {
           <img src = {Pirateslogo} />
           <form>
             <label>
-              Guess:
-              <input type="text" name="name" pattern="[A-Za-z]{1}"  />
+              Take a guess, write a letter and hit `Guess`
+              <hr />
+
+              <input type="text" name="name" pattern="[A-Za-z]{1}" value="your letter here" />
             </label>
-            <input type="Guess" value="Guess" />
+
           </form>
 
           <Hangman />
-          <Showguess />
+
       </div>
-    );
-  }
+    )
+}
 }
 
 export default App;
