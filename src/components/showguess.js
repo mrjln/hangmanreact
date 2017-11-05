@@ -1,8 +1,21 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
+class showGuess extends PureComponent {
+  static propTypes = {
+  word: PropTypes.string,
+  guesses:PropTypes.array,
+  showguess: PropTypes.string.isRequired,
+}
 
-function showGuess(word, guesses) {
+constructor(props) {
+  super(props)
+  this.state = {
+    showguess: "h _ l l _",
+  }
+}
+
+ showGuess(word, guesses) {
   var lettercollection = word.split("");
   var dash = "_";
 
@@ -13,3 +26,18 @@ function showGuess(word, guesses) {
          return letter
        };
      });
+
+     var joined = result.join(" ")
+     console.log(joined)
+     return joined
+ }
+
+render() {
+  return (
+        <h1> { this.state.showguess} </h1>
+          )
+}
+
+}
+
+export default showGuess

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import Hangman from './components/hangman.js'
-import WrongGuessCount from './components/wrongguesscount.js'
+import Hangman from './components/Hangman.js'
+import WrongGuessCount from './components/Wrongguesscount.js'
+import Showguess from './components/Showguess.js'
+import Pirateslogo from './images/pirateslogo.jpg'
 
 
 class App extends Component {
@@ -9,6 +11,7 @@ class App extends Component {
     return (
       <div className="App">
           <h1 className="App-title">Welcome to Hangman</h1>
+          <img src = {Pirateslogo} />
           <form>
             <label>
               Guess:
@@ -16,8 +19,9 @@ class App extends Component {
             </label>
             <input type="Guess" value="Guess" />
           </form>
-          <Hangman />
-          <WrongGuessCount amountofwrongguesses = "3" />
+          <h1>Wrong Guess Count: </h1>
+          <WrongGuessCount  />
+          <Showguess />
       </div>
     );
   }
