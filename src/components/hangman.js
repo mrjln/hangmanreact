@@ -6,7 +6,7 @@ class Hangman extends PureComponent {
     render() {
       return(
               <div>
-              <Showguess />
+                    <Showguess />
               </div>
             )
     }

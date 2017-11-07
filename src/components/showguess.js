@@ -1,10 +1,74 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
-import AddGuess  from '../components/AddGuess.js'
+import GuessForm  from '../components/GuessForm.js'
+import PropTypes from 'prop-types'
+import Pirateslife from '../images/piratelife.jpg'
 
 class showGuess extends PureComponent {
+  static propTypes = {
+    showguess: PropTypes.string,
+    wrongguesscount: PropTypes.number,
+    iswinner: PropTypes.string,
+  }
 
- showGuessTekst(word, guesses) {
+render() {
+  if(this.props.wrongguesscount < 4) {
+    var life1 =  <img className="life" src = {Pirateslife} alt= "life"/>
+  }
+  if(this.props.wrongguesscount < 3) {
+    var life2 =  <img className="life" src = {Pirateslife} alt= "life"/>
+  }
+  if(this.props.wrongguesscount < 2) {
+    var life3 =  <img className="life" src = {Pirateslife} alt= "life" />
+  }
+  if(this.props.wrongguesscount < 1) {
+    var life4 =  <img className="life" src = {Pirateslife} alt= "life"/>
+  }
+  if(this.props.wrongguesscount <= 0) {
+    var life5 =  <img className="life" src = {Pirateslife} alt= "life"/>
+  }
+  return (
+        <div>
+            <h1> Score: { this.props.showguess} </h1>
+            <h1> Wrong Guesses: {this.props.wrongguesscount} </h1>
+            <h2> {this.props.iswinner} </h2>
+            <GuessForm />
+
+            <h1>Lifes left </h1>
+            {life1}
+            {life2}
+            {life3}
+            {life4}
+            {life5}
+        </div>
+          )
+}
+
+}
+
+const mapStateToProps =  function(state){
+  return {
+        showguess: state.guess.showguess,
+        wrongguesscount: state.guess.wrongguesscount,
+        iswinner: state.guess.iswinner
+    }
+}
+
+export default connect(mapStateToProps)(showGuess)
+
+
+
+  /*constructor(props) {
+    super(props);
+    this.state = {
+      showguess: this.showGuessTekst(),
+      wrongguesscount: this.wrongGuessCount(),
+      iswinner: this.isWinner(),
+      play: this.play(""),
+    }
+  } */
+
+ /* showGuessTekst(word, guesses) {
     word = "blob"
     guesses = ["w", "t", "o"]
   var lettercollection = word.split("");
@@ -56,6 +120,7 @@ class showGuess extends PureComponent {
  play(letter) {
    var word = "blob"
    var guesses = ["w", "t", "o"]
+
    var trimmedAnswer = letter.trim()
    var lowerCasedAnswer = trimmedAnswer.toLowerCase()
    guesses.push(lowerCasedAnswer)
@@ -65,31 +130,4 @@ class showGuess extends PureComponent {
    this.showGuessTekst(word, guesses)
    this.wrongGuessCount(word,guesses)
 
-    }
-
- constructor(props) {
-   super(props);
-   this.state = {
-     showguess: this.showGuessTekst(),
-     wrongguesscount: this.wrongGuessCount(),
-     iswinner: this.isWinner(),
-     play: this.play(""),
-   }
- }
-
-render() {
-  let input
-  return (
-    <div>
-        <h1> Score: { this.state.showguess} </h1>
-        <h1> Guess Count: {this.state.wrongguesscount} </h1>
-        <h2> {this.state.iswinner} </h2>
-
-        <AddGuess />
-      </div>
-          )
-}
-
-}
-
-export default showGuess
+ } */

@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+/* import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 class wrongGuessCount extends PureComponent {
@@ -11,9 +11,9 @@ class wrongGuessCount extends PureComponent {
           amountOfWrongGuesses += 1
         }
       }
+      amountOfWrongGuesses.toString()
       return  amountOfWrongGuesses
   }
-
 
     render() {
       return (
@@ -23,4 +23,4 @@ class wrongGuessCount extends PureComponent {
 
 }
 
-export default wrongGuessCount
+export default wrongGuessCount */
