@@ -5,7 +5,6 @@ import React, { PureComponent } from 'react'
 
 class GuessForm extends PureComponent {
 
-
 onChange(event){
   this.props.addGuess(event.target.value)
   event.target.value = ""

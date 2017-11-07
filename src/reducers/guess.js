@@ -41,7 +41,6 @@ function isWinner(word, guesses) {
    })
 
    if (filteredWord.length === 0) return result = "WINNER" ;
-   else return result= "arr.. watch your precious pirate lifes matey!";
 }
 
 const initialState = {
