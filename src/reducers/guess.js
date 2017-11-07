@@ -1,6 +1,7 @@
 import {ADD_GUESS} from '../actions/addguess'
 //ik wil de variabele hebben die ADD_GUESS heet uit deze file
 
+
 function showGuessTekst(word, guesses) {
  var lettercollection = word.split("")
  var dash = "_";
@@ -20,6 +21,7 @@ function showGuessTekst(word, guesses) {
 
 function wrongGuessCount(word, guesses) {
    var amountOfWrongGuesses = 0
+   console.log(amountOfWrongGuesses)
    let i = 0
    for(i=0; i < guesses.length; i++ ) {
        if(word.indexOf(guesses[i]) === -1){
@@ -39,23 +41,25 @@ function isWinner(word, guesses) {
    })
 
    if (filteredWord.length === 0) return result = "WINNER" ;
-   else return result= "You did not win yet, try again...";
+   else return result= "arr.. watch your precious pirate lifes matey!";
 }
 
 const initialState = {
-  word: "bier",
+  word: "beer",
   guesses: [],
-  showguess: "_ _ _ _ ",
+  showguess: "_ _ _ _",
   wrongguesscount: 0,
   iswinner: "",
 }
 
+
 export default (state = initialState, { type, payload } = {}) => {
   switch(type) {
     case ADD_GUESS:
+        state.guesses.push(payload)
         return {
           word: state.word,
-          guesses: state.guesses.concat(payload),
+          guesses: state.guesses,
           wrongguesscount: wrongGuessCount(state.word, state.guesses),
           iswinner: isWinner(state.word, state.guesses),
           showguess: showGuessTekst(state.word, state.guesses),

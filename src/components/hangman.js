@@ -12,13 +12,6 @@ class Hangman extends PureComponent {
     }
 }
 
-const mapStateToProps =  function(state){
-return {
-        nextguess: state.nextguess
-        }
-}
-
-
 export default Hangman
 
  /*

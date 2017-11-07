@@ -15,10 +15,8 @@ render() {
     return (
       <div>
         <form>
+        <label> Guess a letter </label>
           <input onChange= {this.onChange.bind(this)}  />
-          <button type="submit">
-            Add letter
-          </button>
         </form>
       </div>
     )

@@ -3,38 +3,47 @@ import { connect } from 'react-redux'
 import GuessForm  from '../components/GuessForm.js'
 import PropTypes from 'prop-types'
 import Pirateslife from '../images/piratelife.jpg'
+import Fail from '../images/fail.jpg'
 
 class showGuess extends PureComponent {
   static propTypes = {
     showguess: PropTypes.string,
     wrongguesscount: PropTypes.number,
     iswinner: PropTypes.string,
+    guesses:PropTypes.array,
   }
 
 render() {
-  if(this.props.wrongguesscount < 4) {
+
+  if(this.props.wrongguesscount === 5) {
+    var fail =  <img className="life" src = {Fail} alt= "life"/>
+  }
+  if(this.props.wrongguesscount < 5) {
     var life1 =  <img className="life" src = {Pirateslife} alt= "life"/>
   }
-  if(this.props.wrongguesscount < 3) {
+  if(this.props.wrongguesscount < 4) {
     var life2 =  <img className="life" src = {Pirateslife} alt= "life"/>
   }
-  if(this.props.wrongguesscount < 2) {
+  if(this.props.wrongguesscount < 3) {
     var life3 =  <img className="life" src = {Pirateslife} alt= "life" />
   }
-  if(this.props.wrongguesscount < 1) {
+  if(this.props.wrongguesscount < 2) {
     var life4 =  <img className="life" src = {Pirateslife} alt= "life"/>
   }
-  if(this.props.wrongguesscount <= 0) {
-    var life5 =  <img className="life" src = {Pirateslife} alt= "life"/>
+  if(this.props.wrongguesscount < 1) {
+    var life5 = <img className="life" src = {Pirateslife} alt= "life"/>
   }
+
+
   return (
         <div>
             <h1> Score: { this.props.showguess} </h1>
-            <h1> Wrong Guesses: {this.props.wrongguesscount} </h1>
-            <h2> {this.props.iswinner} </h2>
             <GuessForm />
-
+            <h1> Wrong Guesses: {this.props.wrongguesscount} </h1>
+            <h2> You Guessed: {this.props.guesses} </h2>
             <h1>Lifes left </h1>
+            <h2> {this.props.iswinner} </h2>
+            {fail}
             {life1}
             {life2}
             {life3}
@@ -50,7 +59,8 @@ const mapStateToProps =  function(state){
   return {
         showguess: state.guess.showguess,
         wrongguesscount: state.guess.wrongguesscount,
-        iswinner: state.guess.iswinner
+        iswinner: state.guess.iswinner,
+        guesses: state.guess.guesses
     }
 }
 

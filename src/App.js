@@ -12,9 +12,6 @@ class App extends Component {
           <h1 className="App-title">Welcome to Hangman</h1>
           <img src = {Pirateslogo} />
           <hr />
-            <label>
-              Take a guess, write a letter and hit `Guess`
-            </label>
           <Hangman />
 
 
