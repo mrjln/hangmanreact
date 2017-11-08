@@ -43,10 +43,11 @@ function isWinner(word, guesses) {
    if (filteredWord.length === 0) return result = "WINNER" ;
 }
 
+
 const initialState = {
-  word: "beer",
+  word: "rum",
   guesses: [],
-  showguess: "_ _ _ _",
+  showguess: "_ _ _",
   wrongguesscount: 0,
   iswinner: "",
 }
